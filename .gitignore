@@ -1,0 +1,5 @@
+build/
+testing/
+misc/
+
+compile_flags.txt
