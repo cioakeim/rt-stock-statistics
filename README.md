@@ -16,7 +16,7 @@ make
 The above assumes that libwebsockets and OpenSSL are installed on your device.  
 To cross-build a binary for your Raspberry Pi:
 ```
-cd cross-build 
+cd cross-compile
 mkdir build 
 cd build
 cmake -DCMAKE_TOOLCHAIN_FILE=../toolchain.cmake ..
