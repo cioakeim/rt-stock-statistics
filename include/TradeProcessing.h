@@ -75,8 +75,7 @@ typedef struct{
  * @brief Writes a given trade to it's corresponding file. 
  *
  * Mutual file exclusion is embedded in the function.
- * Each trade is recorded in the form: t,p,v,delay_us
- * where delay (us) counts from the arrival of the json object.
+ * Each trade is recorded in the form: t,p,v
  *
  * @param[in] trade Pointer to trade structure to be logged.
  * @param[in] handlers Array of csv file handlers (one per symbol).
@@ -116,7 +115,12 @@ void add_trade_to_buffers(Trade *trade,
 /**
  * @brief Stores the CalculatorBuffer data and resets for new minute.
  *
- * At each file also writes delay (us) at the end of each entry.
+ * Each candlestick entry is in the form: 
+ * timestamp (min since Epoch), open, max, min, close, total volume
+ *
+ * Each moving average entry is in the form:
+ * timestamp (min since Epoch), 15min moving average, 15min total volume
+ *
  *
  * @param[in] timestamp_minutes Minutes since Epoch of the minute to be stored.
  * @param[in] event_time Timestamp of minute event arrival.
